@@ -1,4 +1,10 @@
 package filtros;
 
-public class ValidarDatos {
+import models.Pedido;
+
+public class ValidarDatos implements Filtro{
+    @Override
+    public Pedido procesar(Pedido pedido) {
+        return null;
+    }
 }

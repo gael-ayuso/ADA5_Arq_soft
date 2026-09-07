@@ -1,4 +1,5 @@
-import java.util.List;
+package models;
+
 import java.util.Map;
 
 public class Pedido {

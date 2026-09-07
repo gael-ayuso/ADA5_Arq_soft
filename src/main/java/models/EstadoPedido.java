@@ -1,3 +1,5 @@
+package models;
+
 public enum EstadoPedido {
     PEDIDO_VALIDO,
     PEDIDO_SIN_PRODUCTOS,
