@@ -11,6 +11,7 @@ public class Pedido {
     private double impuestos;
     private double total;
     private EstadoPedido estado;
+    private boolean revisionFraude;
 
     public Pedido(
             String cliente,
@@ -93,12 +94,20 @@ public class Pedido {
         this.estado = estado;
     }
 
+    public boolean isRevisionFraude() {
+        return revisionFraude;
+    }
+    public void setRevisionFraude(boolean revisionFraude) {
+        this.revisionFraude = revisionFraude;
+    }
+
     @Override
     public String toString() {
         return "Pedido{" +
                 "cliente='" + cliente + '\'' +
                 ", productos=" + (listaProductos != null ? listaProductos.size() : 0) +
                 ", subtotal=$" + String.format("%.2f", subtotal) +
+                ", revisionFraude=" + revisionFraude + //nuevo flujo
                 ", descuento=$" + String.format("%.2f", descuento) +
                 ", impuestos=$" + String.format("%.2f", impuestos) +
                 ", total=$" + String.format("%.2f", total) +
