@@ -5,19 +5,20 @@ import java.util.List;
 public class Pedido {
     private final String cliente;
     private final List<Producto> listaProductos;
-    private final int subtotal;
-    private final int descuento;
-    private final int impuestos;
-    private final int total;
+    //Los volvi doubles para calculos más exactos
+    private double subtotal;
+    private double descuento;
+    private double impuestos;
+    private double total;
     private EstadoPedido estado;
 
     public Pedido(
             String cliente,
             List<Producto> listaProductos,
-            int subtotal,
-            int descuento,
-            int impuestos,
-            int total,
+            double subtotal,
+            double descuento,
+            double impuestos,
+            double total,
             EstadoPedido estado) {
         this.cliente = cliente;
         this.listaProductos = listaProductos;
@@ -35,12 +36,53 @@ public class Pedido {
         this(
                 cliente,
                 listaProductos,
-                0,
-                0,
-                0,
-                0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
                 null
         );
+    }
+
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public List<Producto> getListaProductos() {
+        return listaProductos;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+
+    public double getImpuestos() {
+        return impuestos;
+    }
+
+    public void setImpuestos(double impuestos) {
+        this.impuestos = impuestos;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public EstadoPedido getEstado() {
@@ -51,11 +93,16 @@ public class Pedido {
         this.estado = estado;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
-
-    public List<Producto> getListaProductos() {
-        return listaProductos;
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "cliente='" + cliente + '\'' +
+                ", productos=" + (listaProductos != null ? listaProductos.size() : 0) +
+                ", subtotal=$" + String.format("%.2f", subtotal) +
+                ", descuento=$" + String.format("%.2f", descuento) +
+                ", impuestos=$" + String.format("%.2f", impuestos) +
+                ", total=$" + String.format("%.2f", total) +
+                ", estado=" + estado +
+                '}';
     }
 }
