@@ -14,6 +14,10 @@ public class Tuberia {
         if (pedido == null) return null;
         for (Filtro filtro : pipeline) {
             pedido = filtro.procesar(pedido);
+
+            System.out.println(" Tras " + filtro.getClass().getSimpleName() + 
+                               " | Estado: " + pedido.getEstado() + 
+                               " | Subtotal: $" + pedido.getSubtotal());
         }
         return pedido;
     }
