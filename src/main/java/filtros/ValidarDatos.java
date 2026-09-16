@@ -10,7 +10,6 @@ public class ValidarDatos implements Filtro{
         final boolean isListaProductosValida = pedido.getListaProductos() != null && !pedido.getListaProductos().isEmpty();
 
         if (!isClienteValido) {
-            pedido.setEstado(EstadoPedido.PEDIDO_MARCADO_COMO_FRAUDE);
             throw new RuntimeException("El cliente no puede estar vacio");
         }else if (!isListaProductosValida) {
             pedido.setEstado(EstadoPedido.PEDIDO_SIN_PRODUCTOS);
