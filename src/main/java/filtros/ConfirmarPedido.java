@@ -10,8 +10,11 @@ public class ConfirmarPedido implements Filtro{
             return null;
         }
 
-        // Si el filtro de fraude no lo marcó para revisión, lo confirmamos
-        if (!pedido.isRevisionFraude()) {
+        // Si viene marcado como fraude desde el filtro VerificarFraude, reafirmamos ese estado final
+        if (pedido.isRevisionFraude()) {
+            pedido.setEstado(EstadoPedido.PEDIDO_MARCADO_COMO_FRAUDE);
+        } else {
+            // Si todo está en orden, confirmamos el pedido
             pedido.setEstado(EstadoPedido.PEDIDO_CONFIRMADO);
         }
         
