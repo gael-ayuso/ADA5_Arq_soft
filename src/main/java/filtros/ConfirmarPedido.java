@@ -9,7 +9,7 @@ public class ConfirmarPedido implements Filtro{
         if (pedido == null) {
             return null;
         }
-        if (isRevisionFraude()) {
+        if (pedido.isRevisionFraude()) {
             return pedido;
         } else {
             pedido.setEstado(EstadoPedido.PEDIDO_CONFIRMADO);
